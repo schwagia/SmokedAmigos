@@ -1,0 +1,86 @@
+body {
+    background-color: #121212; 
+    color: #e0e0e0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.smoked-amigos-title-saloon {
+    /* 'Sancreek' ist eine sehr dekorative Western-Schrift */
+    font-family: 'Sancreek', cursive;
+    font-size: 4.5rem;
+    text-align: center;
+    
+    /* Eine cremige Farbe für den Haupttext */
+    color: #fceecb; 
+    
+    /* Ein harter, rostbrauner Schatten für den 3D-Effekt */
+    text-shadow: 
+        3px 3px 0px #8b4513, /* Rostbrauner Blockschatten */
+        5px 5px 2px rgba(0,0,0,0.6); /* Weicher Schatten darunter für Tiefe */
+        
+    /* Eine leichte Biegung, wie ein altes Schild */
+    transform: rotate(-2deg); 
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+/* Abstand nach oben zum Bild-Bereich */
+.section-spacing {
+    margin-top: 60px; /* Hier wählst du den Abstand zum Bild darüber selbst */
+    margin-bottom: 60px;
+}
+
+/* Design der Text-Boxen */
+.info-box {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05); /* Ganz dezenter Hintergrund */
+    height: 100%; /* Sorgt dafür, dass beide Boxen gleich hoch sind */
+}
+
+/* Kleinere Version deines BBQ-Titels */
+.bbq-title-small {
+    font-family: 'Rye', cursive; /* Oder deine gewählte Western-Schrift */
+    color:  #fceecb;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Text-Styling */
+.info-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Spezielles Design für das Bild */
+.rounded-custom {
+    border-radius: 15px; /* Sanft abgerundete Ecken */
+    border: 2px solid #333; /* Dezenter Rahmen */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Tiefe für das Bild */
+}
+
+/* Abstand und Styling für den Text-Bereich */
+.about-content {
+    padding-left: 20px;
+}
+
+/* Auf mobilen Geräten den Padding links entfernen, damit der Text mittig ist */
+@media (max-width: 768px) {
+    .about-content {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .image-wrapper {
+        text-align: center;
+    }
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cccccc;
+}
