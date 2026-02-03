@@ -57,7 +57,6 @@
     </div>
 </div>
 
-
   <script>
     fetch('navbar.html')
       .then(res => res.text())
@@ -73,8 +72,33 @@
             link.classList.add('active');
           }
         });
+
+        // Mobile toggler fallback & close menu after clicking a link
+        const toggler = document.querySelector('.navbar-toggler');
+        const collapse = document.getElementById('navbarSupportedContent');
+
+        if (toggler && collapse) {
+          // Ensure toggler toggles the 'show' class (works even if Bootstrap JS isn't available)
+          toggler.addEventListener('click', function () {
+            const isShown = collapse.classList.contains('show');
+            collapse.classList.toggle('show');
+            toggler.setAttribute('aria-expanded', String(!isShown));
+          });
+
+          // Close collapse after navigation on mobile
+          const collapseLinks = collapse.querySelectorAll('.nav-link');
+          collapseLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              if (collapse.classList.contains('show')) {
+                collapse.classList.remove('show');
+                toggler.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+        }
       });
   </script>
+  
 </body>
 
 </html>
