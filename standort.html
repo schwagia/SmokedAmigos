@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standort</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Standort</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-    
-<div id="navbar-placeholder"></div>
 
+  <div id="navbar-placeholder"></div>
 
+  <h1 style="margin-top: 100px; margin-left: 50px;">Under Construction</h1>
 
-    <script>
-  fetch('navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-      
-      // Bonus: Logik um die 'active' Klasse automatisch zu setzen
-      const currentPage = window.location.pathname.split("/").pop();
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-          link.classList.add('active');
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Bonus: Logik um die 'active' Klasse automatisch zu setzen
+        const currentPage = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+
+        // Mobile toggler fallback & close menu after clicking a link
+        const toggler = document.querySelector('.navbar-toggler');
+        const collapse = document.getElementById('navbarSupportedContent');
+
+        if (toggler && collapse) {
+          toggler.addEventListener('click', function () {
+            const isShown = collapse.classList.contains('show');
+            collapse.classList.toggle('show');
+            toggler.setAttribute('aria-expanded', String(!isShown));
+          });
+
+          const collapseLinks = collapse.querySelectorAll('.nav-link');
+          collapseLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              if (collapse.classList.contains('show')) {
+                collapse.classList.remove('show');
+                toggler.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
         }
       });
-
-      // Mobile toggler fallback & close menu after clicking a link
-      const toggler = document.querySelector('.navbar-toggler');
-      const collapse = document.getElementById('navbarSupportedContent');
-
-      if (toggler && collapse) {
-        toggler.addEventListener('click', function () {
-          const isShown = collapse.classList.contains('show');
-          collapse.classList.toggle('show');
-          toggler.setAttribute('aria-expanded', String(!isShown));
-        });
-
-        const collapseLinks = collapse.querySelectorAll('.nav-link');
-        collapseLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            if (collapse.classList.contains('show')) {
-              collapse.classList.remove('show');
-              toggler.setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-      }
-    });
-</script>
+  </script>
 </body>
 </body>
+
 </html>
